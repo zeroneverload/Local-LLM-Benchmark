@@ -144,3 +144,6 @@ vite.config.ts.timestamp-*
 # OS/editor noise
 .DS_Store
 Thumbs.db
+
+# Local wiki worktree clone
+.wiki-temp/

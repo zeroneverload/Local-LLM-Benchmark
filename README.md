@@ -1,72 +1,129 @@
 # Local LLM Benchmark
 
-A local LLM benchmarking framework designed to evaluate model performance across multiple backends (LM Studio, Ollama, etc.), including metrics for speed, quality, and instruction adherence. Supports structured test runs, result analysis, and reproducible evaluations.
+Deutsch | [English](#english)
 
-## Default Prompts via `Default_promt.json`
+Vergleiche lokale und OpenAI-kompatible LLMs reproduzierbar - mit klaren Metriken, strukturierten Tests und praxisnaher Meta-Auswertung.
 
-Die eingebauten Default-Profile werden aus dieser Datei geladen:
+## Warum dieses Projekt?
 
-- `data/Default_promt.json`
+`Local LLM Benchmark` hilft dir, Modelle nicht nur nach Bauchgefuehl, sondern anhand vergleichbarer Daten zu bewerten:
 
-Du kannst die Datei direkt anpassen, ohne neu zu deployen. Die Inhalte werden bei API-Zugriffen dynamisch geladen.
+- Geschwindigkeit (`walltime`, `ttft`, `tokens/s`)
+- Antwortqualitaet und Instruktions-Treue
+- Vergleich mehrerer Systeme, Modelle und Prompt-Profile
+- Meta-Auswertung ganzer Run-Datensaetze (lokal oder optional cloud-freigegeben)
 
-Wenn die Datei fehlt, leer oder ungueltig ist, nutzt das System automatisch die internen Fallback-Defaults und schreibt die Datei neu.
+## Features
 
-## Struktur von `Default_promt.json`
+- System-Slots fuer mehrere Backends (z. B. Ollama, LM Studio, OpenAI-kompatibel)
+- Prompt-Profile mit Default- und User-Prompts
+- Einzeltest, Profilmessung und Batch-Matrix
+- Analyse- und Runs-Tab mit Filtern, Detailansichten und Export
+- Live-Dashboard fuer laufende Benchmarks
+- Meta Evaluation inkl. Local Judge und optionaler Cloud-Freigabe
 
-Die Datei muss ein JSON-Array von Profilen sein.
+## Quick Start
 
-Pflichtfelder pro Profil:
-
-- `slug` (string, eindeutig)
-- `title` (string)
-- `tests` (array, genau 10 Tests empfohlen)
-
-Empfohlene Profilfelder:
-
-- `description` (string)
-- `category` (string)
-- `profileType` (`"short"` oder `"long"`)
-- `sortOrder` (number)
-
-Empfohlene Testfelder:
-
-- `title` (string)
-- `prompt` (string)
-- `description` (string)
-- `expectedFocus` (string)
-- `difficulty` (string)
-- `estimatedLength` (string)
-- `tags` (array of string)
-
-## Beispiel
-
-```json
-[
-  {
-    "slug": "default-reasoning",
-    "title": "Reasoning & Logic",
-    "description": "Mehrstufige Logik-, Mathe- und Planungsaufgaben.",
-    "category": "reasoning",
-    "profileType": "long",
-    "sortOrder": 10,
-    "tests": [
-      {
-        "title": "Constraint Scheduler",
-        "description": "Terminslots mit Nebenbedingungen",
-        "expectedFocus": "constraint reasoning",
-        "difficulty": "hard",
-        "estimatedLength": "long",
-        "tags": ["logic", "planning"],
-        "prompt": "Plane einen Wochenplan fuer 5 Personen mit Konflikten."
-      }
-    ]
-  }
-]
+```bash
+npm install
+npm start
 ```
 
-## Hinweise
+Standard-URL: `http://localhost:3005`
 
-- `slug` muss pro Profil eindeutig sein.
-- Die App behandelt diese Eintraege als System-Defaults (read-only in der UI).
-- Standardverhalten bleibt: Default-Prompts werden nicht als User-Prompts exportiert.
+## Dokumentation (Wiki)
+
+- DE Start: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/Startseite-DE
+- EN Home: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/Home-EN
+- FAQ DE: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/FAQ-DE
+- FAQ EN: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/FAQ-EN
+
+## Wichtige Hinweise
+
+### 1) Default Prompts
+
+Die eingebauten Default-Profile kommen aus `data/Default_promt.json`.
+
+Empfehlung:
+
+- nicht als persoenliche Prompt-Sammlung umbauen
+- eigene Profile und Prompts in der UI anlegen
+- Default-Prompts als stabile Benchmark-Seed-Daten nutzen
+
+### 2) Lokale Daten nicht pushen
+
+Fuer eine frische Installation bei anderen Nutzern sollten lokale Lauf-/Nutzerdaten nicht in Git landen.
+
+Siehe:
+
+- https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/Datenschutz-und-Git-Hygiene
+
+### 3) Meta Cloud-Freigabe mit Vorsicht
+
+Portfreigaben nur bewusst und zeitlich begrenzt nutzen, idealerweise mit Token-Schutz.
+
+---
+
+## English
+
+[Deutsch](#local-llm-benchmark) | English
+
+Reproducibly compare local and OpenAI-compatible LLMs with structured tests, clear metrics, and practical meta evaluation.
+
+## Why this project?
+
+`Local LLM Benchmark` helps you evaluate models using consistent data instead of subjective impressions:
+
+- speed metrics (`walltime`, `ttft`, `tokens/s`)
+- response quality and instruction adherence
+- cross-system/model/profile comparison
+- meta evaluation over complete run datasets (local or optional cloud exposure)
+
+## Features
+
+- multi-slot system configuration for different backends
+- prompt profiles with default and user prompts
+- single tests, profile runs, and batch matrix mode
+- analysis and runs tabs with filters, details, and export options
+- live dashboard during active benchmark runs
+- meta evaluation with local judge and optional cloud exposure
+
+## Quick Start
+
+```bash
+npm install
+npm start
+```
+
+Default URL: `http://localhost:3005`
+
+## Documentation (Wiki)
+
+- EN Home: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/Home-EN
+- DE Start: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/Startseite-DE
+- FAQ EN: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/FAQ-EN
+- FAQ DE: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/FAQ-DE
+
+## Important Notes
+
+### 1) Default prompts
+
+Default profiles are loaded from `data/Default_promt.json`.
+
+Recommendation:
+
+- do not use this file as your personal prompt workspace
+- create your own profiles/prompts in the UI
+- keep defaults as stable benchmark seed data
+
+### 2) Keep local data out of git
+
+For clean installs, local runtime/user data should not be committed.
+
+See:
+
+- https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/Privacy-and-Git-Hygiene
+
+### 3) Use meta cloud exposure carefully
+
+Open ports only when needed, use token protection when possible, and close exposure after use.
