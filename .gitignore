@@ -67,9 +67,10 @@ web_modules/
 !.env.example
 
 # Local runtime data / sensitive config
-data/runs.json
-data/meta/
-data/Config.cfg
+data/*
+!data/Default_promt.json
+!data/Default_promt-orig.json
+!data/Default_promt_.json
 data/*.tmp*
 
 # parcel-bundler cache (https://parceljs.org/)
