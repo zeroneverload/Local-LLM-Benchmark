@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "slot_number": 1,
+    "name": "System 1",
+    "platform": "ollama",
+    "type": "ollama",
+    "base_url": "",
+    "api_key": "",
+    "selected_model": "",
+    "hardware_details": {
+      "cpu": "",
+      "gpu": "",
+      "ram": "",
+      "notes": ""
+    },
+    "llm_settings": {
+      "temperature": "",
+      "top_p": "",
+      "max_context": ""
+    },
+    "models": [],
+    "last_status": "disconnected",
+    "last_error": "",
+    "updated_at": "2026-04-21T22:56:04.569Z"
+  },
+  {
+    "id": 2,
+    "slot_number": 2,
+    "name": "System 2",
+    "platform": "ollama",
+    "type": "ollama",
+    "base_url": "",
+    "api_key": "",
+    "selected_model": "",
+    "hardware_details": {
+      "cpu": "",
+      "gpu": "",
+      "ram": "",
+      "notes": ""
+    },
+    "llm_settings": {
+      "temperature": "",
+      "top_p": "",
+      "max_context": ""
+    },
+    "models": [],
+    "last_status": "disconnected",
+    "last_error": "",
+    "updated_at": "2026-04-21T22:51:12.377Z"
+  },
+  {
+    "id": 3,
+    "slot_number": 3,
+    "name": "System 3",
+    "platform": "ollama",
+    "type": "ollama",
+    "base_url": "",
+    "api_key": "",
+    "selected_model": "",
+    "hardware_details": {
+      "cpu": "",
+      "gpu": "",
+      "ram": "",
+      "notes": ""
+    },
+    "llm_settings": {
+      "temperature": "",
+      "top_p": "",
+      "max_context": ""
+    },
+    "models": [],
+    "last_status": "disconnected",
+    "last_error": "",
+    "updated_at": "2026-04-21T22:51:12.377Z"
+  },
+  {
+    "id": 4,
+    "slot_number": 4,
+    "name": "System 4",
+    "platform": "ollama",
+    "type": "ollama",
+    "base_url": "",
+    "api_key": "",
+    "selected_model": "",
+    "hardware_details": {
+      "cpu": "",
+      "gpu": "",
+      "ram": "",
+      "notes": ""
+    },
+    "llm_settings": {
+      "temperature": "",
+      "top_p": "",
+      "max_context": ""
+    },
+    "models": [],
+    "last_status": "disconnected",
+    "last_error": "",
+    "updated_at": "2026-04-21T22:51:12.377Z"
+  }
+]

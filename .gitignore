@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local runtime data / sensitive config
+data/runs.json
+data/meta/
+data/Config.cfg
+data/*.tmp*
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.log
