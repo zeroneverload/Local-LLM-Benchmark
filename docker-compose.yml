@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    image: local-llm-benchmark:latest
+    container_name: local-llm-benchmark
+    environment:
+      PORT: "3005"
+      META_PUBLIC_PORT: "3015"
+    ports:
+      - "3005:3005"
+      - "3015:3015"
+    volumes:
+      - llm_benchmark_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  llm_benchmark_data:

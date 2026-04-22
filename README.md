@@ -4,32 +4,56 @@ Deutsch | [English](#english)
 
 Vergleiche lokale und OpenAI-kompatible LLMs reproduzierbar - mit klaren Metriken, strukturierten Tests und praxisnaher Meta-Auswertung.
 
-## Warum dieses Projekt?
-
-`Local LLM Benchmark` hilft dir, Modelle nicht nur nach Bauchgefuehl, sondern anhand vergleichbarer Daten zu bewerten:
-
-- Geschwindigkeit (`walltime`, `ttft`, `tokens/s`)
-- Antwortqualitaet und Instruktions-Treue
-- Vergleich mehrerer Systeme, Modelle und Prompt-Profile
-- Meta-Auswertung ganzer Run-Datensaetze (lokal oder optional cloud-freigegeben)
-
 ## Features
 
-- System-Slots fuer mehrere Backends (z. B. Ollama, LM Studio, OpenAI-kompatibel)
-- Prompt-Profile mit Default- und User-Prompts
-- Einzeltest, Profilmessung und Batch-Matrix
-- Analyse- und Runs-Tab mit Filtern, Detailansichten und Export
-- Live-Dashboard fuer laufende Benchmarks
-- Meta Evaluation inkl. Local Judge und optionaler Cloud-Freigabe
+- Vergleich mehrerer Systeme/Modelle ueber einheitliche Prompt-Profile
+- Metriken wie `walltime`, `ttft`, `tokens/s`, Token-Verbrauch
+- Einzeltests, Profilmessungen und Batch-Matrix
+- Analyse-, Runs- und Live-Dashboard-Ansicht
+- Meta Evaluation (Local Judge + optionale Cloud-Freigabe)
 
-## Quick Start
+## Schnellstart ohne Docker
+
+Voraussetzungen:
+
+- Node.js 18+ (empfohlen 20+)
+- npm
+
+Start:
 
 ```bash
 npm install
 npm start
 ```
 
-Standard-URL: `http://localhost:3005`
+App URL: `http://localhost:3005`
+
+## Start mit Docker
+
+### Option A: Docker Compose (empfohlen)
+
+```bash
+docker compose up -d --build
+```
+
+Stoppen:
+
+```bash
+docker compose down
+```
+
+### Option B: Direkt mit Docker
+
+```bash
+docker build -t local-llm-benchmark .
+docker run -d --name local-llm-benchmark -p 3005:3005 -p 3015:3015 -v llm_benchmark_data:/app/data local-llm-benchmark
+```
+
+Hinweise:
+
+- `3005` = App
+- `3015` = Meta Public Port (nur relevant bei Cloud-Freigabe)
+- Volume `llm_benchmark_data` speichert deine lokalen Daten persistent
 
 ## Dokumentation (Wiki)
 
@@ -40,27 +64,54 @@ Standard-URL: `http://localhost:3005`
 
 ## Wichtige Hinweise
 
-### 1) Default Prompts
+### Default Prompts
 
-Die eingebauten Default-Profile kommen aus `data/Default_promt.json`.
+Default-Profile kommen aus `data/Default_promt.json`.
 
 Empfehlung:
 
 - nicht als persoenliche Prompt-Sammlung umbauen
 - eigene Profile und Prompts in der UI anlegen
-- Default-Prompts als stabile Benchmark-Seed-Daten nutzen
+- Default-Prompts als stabile Benchmark-Basis verwenden
 
-### 2) Lokale Daten nicht pushen
+### Lokale Daten nicht pushen
 
-Fuer eine frische Installation bei anderen Nutzern sollten lokale Lauf-/Nutzerdaten nicht in Git landen.
-
-Siehe:
+Lokale Lauf-/Nutzerdaten sollen nicht ins Repository. Siehe:
 
 - https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/Datenschutz-und-Git-Hygiene
 
-### 3) Meta Cloud-Freigabe mit Vorsicht
+### Meta Cloud-Freigabe
 
 Portfreigaben nur bewusst und zeitlich begrenzt nutzen, idealerweise mit Token-Schutz.
+
+## GitHub veröffentlichen (einfacher Ablauf)
+
+Wenn du neu bei GitHub bist, halte dich an diesen Ablauf:
+
+1. `git status` pruefen
+2. Nur gewollte Dateien committen (`README.md`, `Dockerfile`, `.dockerignore`, `docker-compose.yml`, Code)
+3. Commit Message klar und knapp halten
+4. `git push`
+5. Danach auf GitHub Repository-Seite kurz checken, ob keine lokalen Daten mit hochgeladen wurden
+
+Empfohlener Check vor Push:
+
+```bash
+git ls-files data/*
+git status
+```
+
+## Docker Hub?
+
+Nein, Docker-Images werden **nicht automatisch** auf Docker Hub gepostet.
+
+Du musst das explizit selbst machen (login, tag, push), z. B.:
+
+```bash
+docker login
+docker tag local-llm-benchmark <dockerhub-user>/local-llm-benchmark:latest
+docker push <dockerhub-user>/local-llm-benchmark:latest
+```
 
 ---
 
@@ -70,32 +121,56 @@ Portfreigaben nur bewusst und zeitlich begrenzt nutzen, idealerweise mit Token-S
 
 Reproducibly compare local and OpenAI-compatible LLMs with structured tests, clear metrics, and practical meta evaluation.
 
-## Why this project?
-
-`Local LLM Benchmark` helps you evaluate models using consistent data instead of subjective impressions:
-
-- speed metrics (`walltime`, `ttft`, `tokens/s`)
-- response quality and instruction adherence
-- cross-system/model/profile comparison
-- meta evaluation over complete run datasets (local or optional cloud exposure)
-
 ## Features
 
-- multi-slot system configuration for different backends
-- prompt profiles with default and user prompts
+- compare multiple systems/models with shared prompt profiles
+- metrics like `walltime`, `ttft`, `tokens/s`, token usage
 - single tests, profile runs, and batch matrix mode
-- analysis and runs tabs with filters, details, and export options
-- live dashboard during active benchmark runs
-- meta evaluation with local judge and optional cloud exposure
+- analysis, runs, and live dashboard views
+- meta evaluation (local judge + optional cloud exposure)
 
-## Quick Start
+## Quick Start without Docker
+
+Requirements:
+
+- Node.js 18+ (20+ recommended)
+- npm
+
+Run:
 
 ```bash
 npm install
 npm start
 ```
 
-Default URL: `http://localhost:3005`
+App URL: `http://localhost:3005`
+
+## Run with Docker
+
+### Option A: Docker Compose (recommended)
+
+```bash
+docker compose up -d --build
+```
+
+Stop:
+
+```bash
+docker compose down
+```
+
+### Option B: Plain Docker
+
+```bash
+docker build -t local-llm-benchmark .
+docker run -d --name local-llm-benchmark -p 3005:3005 -p 3015:3015 -v llm_benchmark_data:/app/data local-llm-benchmark
+```
+
+Notes:
+
+- `3005` = app
+- `3015` = meta public port (only needed for cloud exposure)
+- `llm_benchmark_data` volume keeps local data persistent
 
 ## Documentation (Wiki)
 
@@ -106,24 +181,49 @@ Default URL: `http://localhost:3005`
 
 ## Important Notes
 
-### 1) Default prompts
+### Default prompts
 
 Default profiles are loaded from `data/Default_promt.json`.
 
 Recommendation:
 
 - do not use this file as your personal prompt workspace
-- create your own profiles/prompts in the UI
-- keep defaults as stable benchmark seed data
+- create custom profiles/prompts in the UI
+- keep default prompts stable as benchmark seed data
 
-### 2) Keep local data out of git
+### Keep local data out of git
 
-For clean installs, local runtime/user data should not be committed.
-
-See:
+Local runtime/user data should not be committed. See:
 
 - https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/Privacy-and-Git-Hygiene
 
-### 3) Use meta cloud exposure carefully
+### Meta cloud exposure
 
-Open ports only when needed, use token protection when possible, and close exposure after use.
+Open ports only when needed, prefer token protection, and close exposure afterward.
+
+## Publishing to GitHub (simple flow)
+
+1. check `git status`
+2. commit only intended files
+3. keep commit message clear and short
+4. run `git push`
+5. verify on GitHub that no local/sensitive data was pushed
+
+Suggested pre-push check:
+
+```bash
+git ls-files data/*
+git status
+```
+
+## Docker Hub?
+
+No, images are **not** pushed to Docker Hub automatically.
+
+You must push manually (login, tag, push), for example:
+
+```bash
+docker login
+docker tag local-llm-benchmark <dockerhub-user>/local-llm-benchmark:latest
+docker push <dockerhub-user>/local-llm-benchmark:latest
+```
