@@ -62,6 +62,15 @@ Hinweise:
 - FAQ DE: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/FAQ-DE
 - FAQ EN: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/FAQ-EN
 
+## Docker Image
+
+- Docker Hub: https://hub.docker.com/r/zeroneverload/local-llm-benchmark
+- Tags: `latest`, `1.0.0`
+
+```bash
+docker pull zeroneverload/local-llm-benchmark:latest
+```
+
 ## Wichtige Hinweise
 
 ### Default Prompts
@@ -166,6 +175,15 @@ Notes:
 - DE Start: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/Startseite-DE
 - FAQ EN: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/FAQ-EN
 - FAQ DE: https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/FAQ-DE
+
+## Docker Image
+
+- Docker Hub: https://hub.docker.com/r/zeroneverload/local-llm-benchmark
+- Tags: `latest`, `1.0.0`
+
+```bash
+docker pull zeroneverload/local-llm-benchmark:latest
+```
 
 ## Important Notes
 
