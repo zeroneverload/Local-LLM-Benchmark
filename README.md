@@ -101,18 +101,6 @@ git ls-files data/*
 git status
 ```
 
-## Docker Hub?
-
-Nein, Docker-Images werden **nicht automatisch** auf Docker Hub gepostet.
-
-Du musst das explizit selbst machen (login, tag, push), z. B.:
-
-```bash
-docker login
-docker tag local-llm-benchmark <dockerhub-user>/local-llm-benchmark:latest
-docker push <dockerhub-user>/local-llm-benchmark:latest
-```
-
 ---
 
 ## English
@@ -214,16 +202,4 @@ Suggested pre-push check:
 ```bash
 git ls-files data/*
 git status
-```
-
-## Docker Hub?
-
-No, images are **not** pushed to Docker Hub automatically.
-
-You must push manually (login, tag, push), for example:
-
-```bash
-docker login
-docker tag local-llm-benchmark <dockerhub-user>/local-llm-benchmark:latest
-docker push <dockerhub-user>/local-llm-benchmark:latest
 ```
