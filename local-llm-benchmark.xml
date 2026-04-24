@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Local LLM Benchmark</Name>
+  <Repository>zeroneverload/local-llm-benchmark:latest</Repository>
+  <Registry>https://hub.docker.com/r/zeroneverload/local-llm-benchmark</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/zeroneverload/Local-LLM-Benchmark/issues</Support>
+  <Project>https://github.com/zeroneverload/Local-LLM-Benchmark</Project>
+  <Overview>
+Local LLM Benchmark provides reproducible benchmarking for local and OpenAI-compatible LLM endpoints.
+
+Features include:
+- single tests, profile runs, and batch matrix mode
+- runtime metrics like walltime, TTFT, and tokens/s
+- analysis and runs views with export options
+- optional meta-evaluation workflow
+
+This template is configured for Unraid Community Applications with container WebUI port 3005 (host default 38005).
+  </Overview>
+  <Category>Tools: Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:3005]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/zeroneverload/Local-LLM-Benchmark/main/client/public/favicon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+
+  <Description>
+Install Local LLM Benchmark in Unraid to compare LLM systems with structured tests and clear performance metrics.
+  </Description>
+
+  <Config Name="WebUI Port" Target="3005" Default="38005" Mode="tcp" Description="Port used to access the Local LLM Benchmark WebUI." Type="Port" Display="always" Required="true" Mask="false">38005</Config>
+  <Config Name="Meta Public Port" Target="3015" Default="3015" Mode="tcp" Description="Port for optional meta-evaluation public endpoint exposure." Type="Port" Display="always" Required="false" Mask="false">3015</Config>
+  <Config Name="AppData" Target="/app/data" Default="/mnt/user/appdata/local-llm-benchmark" Mode="rw" Description="Persistent benchmark data (systems, prompts, runs, meta jobs, config)." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/local-llm-benchmark</Config>
+</Container>
