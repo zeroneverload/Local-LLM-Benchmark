@@ -83,34 +83,6 @@ Empfehlung:
 - eigene Profile und Prompts in der UI anlegen
 - Default-Prompts als stabile Benchmark-Basis verwenden
 
-### Lokale Daten nicht pushen
-
-Lokale Lauf-/Nutzerdaten sollen nicht ins Repository. Siehe:
-
-- https://github.com/zeroneverload/Local-LLM-Benchmark/wiki/Datenschutz-und-Git-Hygiene
-
-### Meta Cloud-Freigabe
-
-Portfreigaben nur bewusst und zeitlich begrenzt nutzen, idealerweise mit Token-Schutz.
-
-## GitHub veröffentlichen (einfacher Ablauf)
-
-Wenn du neu bei GitHub bist, halte dich an diesen Ablauf:
-
-1. `git status` pruefen
-2. Nur gewollte Dateien committen (`README.md`, `Dockerfile`, `.dockerignore`, `docker-compose.yml`, Code)
-3. Commit Message klar und knapp halten
-4. `git push`
-5. Danach auf GitHub Repository-Seite kurz checken, ob keine lokalen Daten mit hochgeladen wurden
-
-Empfohlener Check vor Push:
-
-```bash
-git ls-files data/*
-git status
-```
-
----
 
 ## English
 
