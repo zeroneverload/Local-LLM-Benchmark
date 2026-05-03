@@ -179,17 +179,5 @@ Local runtime/user data should not be committed. See:
 
 Open ports only when needed, prefer token protection, and close exposure afterward.
 
-## Publishing to GitHub (simple flow)
 
-1. check `git status`
-2. commit only intended files
-3. keep commit message clear and short
-4. run `git push`
-5. verify on GitHub that no local/sensitive data was pushed
-
-Suggested pre-push check:
-
-```bash
-git ls-files data/*
-git status
 ```
